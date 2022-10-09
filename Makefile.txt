@@ -1,0 +1,15 @@
+CC=g++
+CFLAGS=-c -Wall -Wextra -g2 -ggdb
+
+.PHONY:all
+
+start: main.o fun.o fun.h
+	$(CC) main.o fun.o fun.h -o dirwalk
+
+main.o: main.cpp fun.h
+	$(CC) $(CFLAGS) main.cpp
+
+fun.o: fun.cpp fun.h
+	$(CC) $(CFLAGS) fun.cpp
+clean:
+	rm -rf *.0 dirwalk
